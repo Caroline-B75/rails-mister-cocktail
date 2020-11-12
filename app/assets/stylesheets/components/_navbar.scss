@@ -1,12 +1,24 @@
-.navbar-lewagon {
+.navbar {
   justify-content: space-between;
-  background: white;
+  background: #401D39;
 }
 
-.navbar-lewagon .navbar-collapse {
+.navbar .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
+.navbar .navbar-brand img {
   width: 40px;
+}
+
+.navbar-brand{
+  font-family: "Kaushan Script", "cursive";
+  font-size: 40px;
+  color: white;
+}
+
+.navbar-brand:hover{
+  font-family: "Kaushan Script", "cursive";
+  font-size: 40px;
+  color: white;
 }

@@ -13,6 +13,18 @@
   </head>
 
   <body>
+  <nav class="navbar navbar-expand-lg">
+  <a class="navbar-brand" href="/cocktails">Crazy Cocktails</a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="ml-auto d-inline-flex">
+        <form class="form-inline my-2 my-lg-0" data-children-count="1">
+          <input class="form-control mr-sm-2" name="query" type="search" placeholder="Search" aria-label="Search" value="">
+          <button class="btn btn-search my-2 my-sm-0" type="submit">Search</button>
+        </form>
+        <a class="btn btn-cocktail my-2 my-sm-0 ml-2" href="/cocktails/new">Add a cocktail</a>
+      </div>
+    </div>
+  </nav>
     <%= yield %>
   </body>
 </html>
