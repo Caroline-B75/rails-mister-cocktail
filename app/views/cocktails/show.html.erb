@@ -13,7 +13,27 @@
           <div class="cocktail-card-content pt-4">
             <div class="cocktail-card-title">
               <h4><%= @cocktail.name %></h4>
-              <div class="d-inline-flex">
+              <div>
+                <table class="table-recipe">
+                  <tbody>
+                    <thead>
+                      <th>Ingredient</th>
+                      <th>Description</th>
+                      <th>Action</th>
+                    </thead>
+                    <% @cocktail.doses.each do |dose| %>
+                      <tr>
+                        <td><%= dose.ingredient.name %></td>
+                        <td><%= dose.description %></td>
+                        <td>
+                          <%= link_to dose_path(dose), method: :delete, data: { confirm: "Are you sure?" } do %>
+                            <i class="fa fa-trash destroy_dose"></i>
+                          <% end %>
+                        </td>
+                      </tr>
+                    <% end %>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
