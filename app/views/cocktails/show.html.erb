@@ -12,14 +12,14 @@
           );"></div>
           <div class="cocktail-card-content pt-4">
             <div class="cocktail-card-title">
-              <h4><%= @cocktail.name %></h4>
+              <h1><%= @cocktail.name %></h1>
               <div>
                 <table class="table-recipe">
                   <tbody>
                     <thead>
                       <th>Ingredient</th>
                       <th>Description</th>
-                      <th>Action</th>
+                      <th>Delete</th>
                     </thead>
                     <% @cocktail.doses.each do |dose| %>
                       <tr>
@@ -34,16 +34,10 @@
                     <% end %>
                   </tbody>
                 </table>
+                <%= link_to "Add a dose", new_cocktail_dose_path(@cocktail), class: "btn btn-cocktail my-2 my-sm-0 ml-2" %>
               </div>
             </div>
           </div>
-
-          <%# <div class="cocktail-card-actions"> %>
-            <%# <%= link_to "More info", cocktail_path(cocktail) %>
-            <%# <a class="ml-3 text-warning" href="/cocktails/4010/edit">Edit</a> %>
-            <%# <a data-confirm="Are you sure?" class="ml-3 text-danger" rel="nofollow" data-method="delete" href="/cocktails/4010">Remove</a> %>
-          <%# </div> %>
-
         </div>
       </div>
   </div>

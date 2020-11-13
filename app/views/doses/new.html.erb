@@ -1,12 +1,47 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-12 col-md-8">
-      <h1>Add a dose to the <%= @cocktail.name %></h1>
-      <%= simple_form_for [@cocktail, @dose] do |f| %>
-        <%= f.association :ingredient, input_html: { class: "beautiful-dropdown" }, include_hidden: false %>
-        <%= f.input :description %>
-        <%= f.submit "Submit review", class: "btn btn-primary" %>
-      <% end %>
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-12">
     </div>
   </div>
-</div>
+
+  <div class="row">
+      <div class="col-12">
+        <div class="cocktail-card mr-4">
+          <div class="cocktail-card-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(
+          https://images.unsplash.com/photo-1589190859807-21bc5319b653?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80
+          );"></div>
+          <div class="cocktail-card-content pt-4">
+            <div class="cocktail-card-title">
+              <h1><%= @cocktail.name %></h1>
+              <div>
+                <table class="table-recipe">
+                  <tbody>
+                    <thead>
+                      <th>Ingredient</th>
+                      <th>Description</th>
+                      <th>Delete</th>
+                    </thead>
+                    <% @cocktail.doses.each do |dose| %>
+                      <tr>
+                        <td><%= dose.ingredient.name %></td>
+                        <td><%= dose.description %></td>
+                        <td>
+                          <%= link_to dose_path(dose), method: :delete, data: { confirm: "Are you sure?" } do %>
+                            <i class="fa fa-trash destroy_dose"></i>
+                          <% end %>
+                        </td>
+                      </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+                <%= simple_form_for [@cocktail, @dose] do |f| %>
+                  <%= f.association :ingredient, input_html: { class: "beautiful-dropdown" }, include_hidden: false %>
+                  <%= f.input :description %>
+                  <%= f.submit "Add the dose", class: "btn btn-search" %>  <%= link_to "Change my mind", cocktail_path(@cocktail), class: "btn btn-search" %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>

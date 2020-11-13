@@ -1,12 +1,22 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-md-8">
-      <h1>Create a new cocktail</h1>
-
-      <%= simple_form_for @cocktail do |f| %>
-        <%= f.input :name %>
-        <%= f.button :submit, class: 'btn btn-primary' %>
-      <% end %>
+  <div class="container mt-3">
+  <div class="row">
+    <div class="col-12">
     </div>
   </div>
-</div>
+  <div class="row">
+      <div class="col-12">
+        <div class="cocktail-card mr-4">
+          <div class="cocktail-card-content pt-4">
+            <div class="cocktail-card-title">
+              <h1>Create a new cocktail</h1>
+              <%= simple_form_for @cocktail do |f| %>
+                <%= f.input :name%>
+                <%= f.button :submit, class: 'btn btn-search' %> <%= link_to "Change my mind", cocktails_path, class: "btn btn-search" %>
+              <% end %>
+              <div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
